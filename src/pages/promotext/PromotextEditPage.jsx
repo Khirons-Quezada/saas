@@ -8,7 +8,6 @@ import { getPromotext } from "../../api/promotext/getPromotext";
 export default function PromotextEditPage() {
   // PARAMETROS
   const params = useParams();
-
   const dataPromotext = getPromotext(params.id);
 
   const [imagen, setImagen] = useState();
