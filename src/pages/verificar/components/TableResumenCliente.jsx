@@ -1246,7 +1246,7 @@ export default function TableResumenCliente(props) {
         <div className="tableFixHead">
           <table className="table table-sm table-bordered bg-white text-center">
             <thead>
-              <tr>
+              <tr style={{marginTop: "2%"}}>
                 <th className="text-white">Cupón</th>
                 <th className="text-white">Tipo</th>
                 <th className="text-white">Clasificación</th>

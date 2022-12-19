@@ -228,7 +228,7 @@ export default function VerificarClientePage() {
                             className="form-control"
                             onChange={handleInputChangeChecked}
                           >
-                            <option value="ID_UDN">UDN</option>
+                            {/* <option value="ID_UDN">UDN</option> */}
                             <option value="DESCRIPCIONASC">A - Z</option>
                             <option value="DESCRIPCIONDES">Z - A</option>
                             <option value="BONIFICACIONASC">

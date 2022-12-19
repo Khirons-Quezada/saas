@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { getUDNSelector } from "../../api/forms/getUDNSelector";
+import { toast } from "react-toast";
 
 export default function CategoriaCreatePage() {
   // SELECTOR UDN
@@ -29,31 +30,31 @@ export default function CategoriaCreatePage() {
       [event.target.name]: event.target.value,
     });
   };
-  const [post, setPost] = useState(null);
+
   const enviarDatos = (event) => {
     event.preventDefault();
-    axios.post("", datosForm).then((response) => {
-      if (response.data.length === 0) {
-        console.log("vacío");
-      } else {
-        login(response.data[0]);
-        setPost(response.data);
-      }
-    });
-    console.log(
-      "enviando datos..." +
-        datosForm.categoria +
-        " " +
-        datosForm.udn +
-        " " +
-        datosForm.estado +
-        " " +
-        datosForm.prime +
-        " " +
-        datosForm.cat +
-        " " +
-        datosForm.especial
-    );
+    axios
+      .post(
+        "http://172.18.2.30/services/post/categorias/post_create_categoria.php",
+        datosForm
+      )
+      .then((response) => {
+        if (response.data.status === "success") {
+          toast.success("¡Categoría creada!", {
+            color: "#ffffff",
+            backgroundColor: "#48BA16",
+          });
+          console.log(response);
+        } else {
+          toast.error(
+            "¡Error al crear categoría!",
+            {
+              color: "#ffffff",
+              backgroundColor: "#DB3847",
+            }
+          );
+        }
+      });
   };
 
   return (

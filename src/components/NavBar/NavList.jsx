@@ -7,7 +7,7 @@ export const NavList = () => {
         <li className="nav-item active">
           <NavLink to="/" className="nav-link">
             <span className="feather-icon">
-              <i data-feather="activity"></i>
+              <span className="fa fa-chart-line"></span>
             </span>
             <span>Monitoreo</span>
           </NavLink>
@@ -34,6 +34,11 @@ export const NavList = () => {
               <li>
                 <NavLink to="/private/gestionar/promotexts">
                   Lista de Promotext
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/private/gestionar/carga-masiva">
+                  Carga Masiva
                 </NavLink>
               </li>
             </ul>
@@ -94,7 +99,12 @@ export const NavList = () => {
             <ul>
               <li>
                 <NavLink to="/private/verificar/verificar-por-cliente">
-                  Verificar Cupones por Cliente
+                  Cupones por Cliente
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/private/verificar/sac">
+                  SAC
                 </NavLink>
               </li>
             </ul>

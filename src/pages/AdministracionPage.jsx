@@ -16,17 +16,12 @@ export default function AdministracionPage() {
               <div className="card">
                 <div className="card-header">
                   <h4>
-                    <b>SAC</b>
+                    <b>TITLE</b>
                   </h4>
                 </div>
                 <div className="card-body">
                   <div className="row">
-                    <ButtonAdministracion
-                      title="Verificar Cliente"
-                      color="primary"
-                      icon="user"
-                      url="/private/administracion/sac-verifica-cliente"
-                    />
+                   
                   </div>
                 </div>
               </div>

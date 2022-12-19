@@ -4,6 +4,7 @@
 
 /* Just common table stuff. Really. */
 .tableFixHead table  { border-collapse: collapse; width: 100%; }
+/* .tableFixHead table tbody tr td {margin-top: 150%; }  */
 
 .bg-saas {
     background-color: #41283b;

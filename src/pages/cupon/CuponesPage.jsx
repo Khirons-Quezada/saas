@@ -3,17 +3,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toast";
-import "./style/style.css";
+// import "./style/style.css";
 
 import PageLoader from "../../components/PageLoader";
 
 const baseURL =
-  "http://172.18.2.30/services/data/promotext/get_data_promotexts.php";
+  "http://172.18.2.30/services/data/cupon/get_data_cupones.php";
 const baseURLSearch =
-  "http://172.18.2.30/services/data/promotext/get_data_promotexts_search.php";
+  "http://172.18.2.30/services/data/cupon/get_data_cupones_search.php";
 
-export default function PromotextsPage() {
-  // CHECKS
+
+export default function CuponesPage() {
+  // CHECKS 
   // LOADING DELETE
   const [isLoading, setIsLoading] = useState(false);
   // SEARCH
@@ -39,6 +40,10 @@ export default function PromotextsPage() {
             isStatus: true,
             listData: response.data,
           });
+          // setPostPage({
+          //   isStatus: true,
+          //   listData: response.data.pages,
+          // });
         }
       });
   };
@@ -57,7 +62,7 @@ export default function PromotextsPage() {
 
   useEffect(() => {
     axios.get(baseURL + "?page=" + page).then((response) => {
-      console.log(response.data.data);
+      // console.log(response.data.data);
 
       if (response.data.data.length == 0) {
         setPost({
@@ -140,13 +145,13 @@ export default function PromotextsPage() {
             <div className="main-body">
               {/* HEADER */}
               <div className="card-heading d-flex a-i-center j-c-between">
-                <h4 className="card-heading-title">Lista de Promotexts</h4>
+                <h4 className="card-heading-title">Lista de Cupones</h4>
                 <div className="card-heading-breadcrumb">
                   <Link
                     className="btn btn-primary"
-                    to={`/private/gestionar/promotext/crear`}
+                    to={`/private/gestionar/categoria/crear`}
                   >
-                    <span className="fa fa-plus"></span> Crear Promotext
+                    <span className="fa fa-plus"></span> Crear Cupón
                   </Link>
                 </div>
               </div>
@@ -173,8 +178,10 @@ export default function PromotextsPage() {
                       <thead className="thead-dark">
                         <tr>
                           <th>#</th>
-                          <th>Descripción</th>
-                          <th>Vista Previa</th>
+                          <th>Tipo Cupón</th>
+                          <th>UDN</th>
+                          <th>Categoría</th>
+                          <th>Estado</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
@@ -182,11 +189,29 @@ export default function PromotextsPage() {
                         {post.isStatus &&
                           post.listData.data.map((item) => (
                             <tr>
-                              <td>{item.id_promotext}</td>
+                              <td>{item.id_cupon}</td>
                               <td>
-                                {item.descripcion}
+                                {item.attrib01.length > 25
+                                  ? item.attrib01.substring(0, 25) + "..."
+                                  : item.attrib01}
                               </td>
-                              <td><img height={30} src={`http://172.18.2.30/services/data/images/promotext/${item.imagen}?${Date.now()}`} /></td>
+                              <td>{item.UDN}</td>
+                              <td>{item.CATEGORIA}</td>
+                              <td>
+                                {item.habilitado == "0" ? (
+                                  <>
+                                    <span className="badge badge-danger">
+                                      Desactivado
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <span className="badge badge-success">
+                                      Activado
+                                    </span>
+                                  </>
+                                )}
+                              </td>
                               <td>
                                 <div
                                   class="btn-group"
@@ -195,11 +220,12 @@ export default function PromotextsPage() {
                                 >
                                   <Link
                                     className="btn btn-primary btn-sm"
-                                    to={`/private/gestionar/promotext/${item.id_promotext}`}
+                                    to={`/private/gestionar/cupon/${item.id_cupon}`}
                                     title="Editar"
                                   >
                                     <span className="fa fa-edit"></span> Editar
                                   </Link>
+                                    
                                 </div>
                               </td>
                             </tr>
@@ -266,7 +292,7 @@ export default function PromotextsPage() {
                                 changePage(postPage.listData[0].max);
                               }}
                             >
-                              <label className="page-link">Ultima</label>
+                              <label className="page-link">Última</label>
                             </li>
                           </ul>
                         </nav>

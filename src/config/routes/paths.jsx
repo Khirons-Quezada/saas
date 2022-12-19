@@ -24,11 +24,15 @@ export const JERARQUIA = '/private/gestionar/jerarquia/:id'
 // CUPONES
 export const CUPONES = '/private/gestionar/cupones'
 export const CUPON = '/private/gestionar/cupon/:id'
+
+// CARGA MASIVA
+export const CARGAMASIVA = '/private/gestionar/carga-masiva'
 // -----------------------------------------------
 
 // VERIFICAR----------------------------------------
 // POR CLIENTE
 export const VERIFICARCLIENTE = '/private/verificar/verificar-por-cliente'
+export const SACVERIFICACLIENTE = '/private/verificar/sac'
 // -----------------------------------------------
 
 // ASIGNAR
@@ -42,4 +46,3 @@ export const CREARCUPONMASIVO = '/private/administracion/crear-cupon-masivo'
 export const COPIAROFFERCODE = '/private/administracion/copiar-offercode'
 export const CARGADATAHANA = '/private/administracion/cargar-data-hana'
 export const SUBIRIMAGENS3 = '/private/administracion/subir-imagenes-s3'
-export const SACVERIFICACLIENTE = '/private/administracion/sac-verifica-cliente'

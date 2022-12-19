@@ -48,7 +48,7 @@ export default function VerificarClientePage() {
                             </div>
                           </div>
                         </div>
-                        <div className="col-lg-2 col-md-12">
+                        <div className="col-lg-3 col-md-12">
                           <div className="form-group">
                             <label>
                               <strong>Mes</strong>

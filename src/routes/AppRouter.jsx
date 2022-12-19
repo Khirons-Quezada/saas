@@ -14,10 +14,9 @@ import {
   PROMOTEXTS,
   PROMOTEXT,
   PROMOTEXTCREAR,
-  JERARQUIAS,
-  JERARQUIA,
-  JERARQUIACREAR,
+  CARGAMASIVA,
   CUPONES,
+  CUPON,
   VERIFICARCLIENTE,
   ASIGNARMANUAL,
   ADMINISTRACION,
@@ -25,7 +24,7 @@ import {
   COPIAROFFERCODE,
   CARGADATAHANA,
   SUBIRIMAGENS3,
-  SACVERIFICACLIENTE,
+  SACVERIFICACLIENTE,  
 } from "../config/routes/paths";
 
 // LOGIN
@@ -45,13 +44,12 @@ import PromotextsPage from "../pages/promotext/PromotextsPage";
 import PromotextEditPage from "../pages/promotext/PromotextEditPage";
 import PromotextCreatePage from "../pages/promotext/PromotextCreatePage";
 
-// JERARQUIAS
-import JerarquiaCreatePage from "../pages/jerarquia/JerarquiaCreatePage";
-import JerarquiaEditPage from "../pages/jerarquia/JerarquiaEditPage";
-import JerarquiasPage from "../pages/jerarquia/JerarquiasPage";
-
 // CUPONES
-import CuponesPage from "../pages/CuponesPage";
+import CuponesPage from "../pages/cupon/CuponesPage";
+import CuponEditPage from "../pages/cupon/CuponEditPage";
+
+// CARGA MASIVA
+import CargaMasivaPage from "../pages/cargamasiva/CargaMasivaPage";
 
 // VERIFICAR
 import VerificarClientePage from "../pages/verificar/VerificarClientePage";
@@ -93,14 +91,17 @@ export default function AppRouter() {
             <Route path={PROMOTEXTS} element={<PromotextsPage />} />
             <Route path={PROMOTEXT} element={<PromotextEditPage />} />
             <Route path={PROMOTEXTCREAR} element={<PromotextCreatePage />} />
-            {/* JERARQUIAS */}
-            <Route path={JERARQUIAS} element={<JerarquiasPage />} />
-            <Route path={JERARQUIA} element={<JerarquiaEditPage />} />
-            <Route path={JERARQUIACREAR} element={<JerarquiaCreatePage />} />
+            {/* CARGA MASIVA */}
+            <Route path={CARGAMASIVA} element={<CargaMasivaPage />} />
             {/* CUPONES */}
             <Route path={CUPONES} element={<CuponesPage />} />
+            <Route path={CUPON} element={<CuponEditPage />} />
             {/* VERIFICAR */}
             <Route path={VERIFICARCLIENTE} element={<VerificarClientePage />} />
+            <Route
+              path={SACVERIFICACLIENTE}
+              element={<VerificarClienteSacPage />}
+            />
             {/* ASIGNAR */}
             <Route path={ASIGNARMANUAL} element={<AsignarManualPage />} />
             {/* ADMINISTRACION */}
@@ -109,14 +110,17 @@ export default function AppRouter() {
             <Route path={COPIAROFFERCODE} element={<CopiarOffercode />} />
             <Route path={CARGADATAHANA} element={<CargarDataHana />} />
             <Route path={SUBIRIMAGENS3} element={<SubirImagenesS3 />} />
-            <Route
-              path={SACVERIFICACLIENTE}
-              element={<VerificarClienteSacPage />}
-            />
             <Route path={LOGOUT} element={<LogoutPage />} />
           </Route>
           {/* OTROS */}
-          <Route path="*" element={<><Error404Page /></>} />
+          <Route
+            path="*"
+            element={
+              <>
+                <Error404Page />
+              </>
+            }
+          />
         </Routes>
       </Router>
     </AuthContextProvider>

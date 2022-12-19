@@ -224,7 +224,7 @@ export default function CategoriasPage() {
                                     to={`/private/gestionar/categoria/${item.id_categoria}`}
                                     title="Editar"
                                   >
-                                    <span className="fa fa-edit"></span>
+                                    <span className="fa fa-edit"></span> Editar
                                   </Link>
                                   {item.is_active == "0" ? (
                                     <>
@@ -235,7 +235,7 @@ export default function CategoriasPage() {
                                         }}
                                         title="Activar"
                                       >
-                                        <span className="fa fa-check"></span>
+                                        <span className="fa fa-check"></span> Activar
                                       </button>
                                     </>
                                   ) : (
@@ -249,7 +249,7 @@ export default function CategoriasPage() {
                                         }}
                                         title="Desactivar"
                                       >
-                                        <span className="fa fa-times"></span>
+                                        <span className="fa fa-times"></span> Desactivar
                                       </button>
                                     </>
                                   )}
@@ -319,7 +319,7 @@ export default function CategoriasPage() {
                                 changePage(postPage.listData[0].max);
                               }}
                             >
-                              <label className="page-link">Ultima</label>
+                              <label className="page-link">Última</label>
                             </li>
                           </ul>
                         </nav>
